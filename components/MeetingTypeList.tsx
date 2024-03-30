@@ -6,13 +6,13 @@ import { useRouter } from 'next/navigation';
 
 import HomeCard from './HomeCard';
 import MeetingModal from './MeetingModal';
-// import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
+import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
-// import { Textarea } from './ui/textarea';
-// import ReactDatePicker from 'react-datepicker';
-// import { useToast } from './ui/use-toast';
-// import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import ReactDatePicker from 'react-datepicker';
+import { toast, useToast } from './ui/use-toast';
+import { Input } from './ui/input';
 
 const initialValues = {
   dateTime: new Date(),
@@ -29,7 +29,7 @@ const MeetingTypeList = () => {
   const [callDetail, setCallDetail] = useState<Call>();
   const client = useStreamVideoClient();
   const { user } = useUser();
-  const { toast } = useToast();
+  // const { toast } = useToast();
 
   const createMeeting = async () => {
     if (!client || !user) return;
